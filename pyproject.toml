@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "enzymes"
+version = "0.1.0"
+description = ""
+authors = ["Victor I. Afolabi <javafolabi@gmail.com>"]
+readme = "README.md"
+packages = [{include = "enzymes", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+tensorflow = {version = "^2.11.0", python = ">=3.9,<3.12", markers = "system_platform != darwin"}
+tensorflow-macos = {version = "^2.11.0", python = ">=3.9,<3.12", platform = "darwin"}
+tensorflow-metal = {version = "^0.7.1", optional = true, python = ">=3.9,<3.12", platform = "darwin"}
+
+[tool.poetry.extras]
+# MacOS GPU support for Apple Silicon.
+metal = ["tensorflow-metal"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
