@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "enzymes"
 version = "0.1.0"
-description = ""
+description = "Graph Neural Networks for enzymes classification."
 authors = ["Victor I. Afolabi <javafolabi@gmail.com>"]
 readme = "README.md"
 packages = [{include = "enzymes", from = "src"}]
@@ -9,12 +9,16 @@ packages = [{include = "enzymes", from = "src"}]
 [tool.poetry.dependencies]
 python = "^3.9"
 
+# Fundamental package for scientific computing with Python.
+numpy = "^1.24.2"
 # TensorFlow for machine learning (general version).
 tensorflow = {version = "^2.11.0", python = ">=3.9,<3.12", markers = "sys_platform != 'darwin'"}
 # TensorFlow for MacOS.
 tensorflow-macos = {version = "^2.11.0", python = ">=3.9,<3.12", platform = "darwin"}
 # TensorFlow for MacOS (Apple Silicon) with GPU support.
 tensorflow-metal = {version = "^0.7.1", optional = true, python = ">=3.9,<3.12", platform = "darwin"}
+# A library for automatically generating command line interfaces.
+fire = "^0.5.0"
 
 [tool.poetry.extras]
 # MacOS GPU support for Apple Silicon.
