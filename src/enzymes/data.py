@@ -1,8 +1,8 @@
 import numpy as np
 
 from spektral.datasets import TUDataset
-from spektral.data import Dataset
-from spektra.loader import BatchLoader, DisjointLoader, Loader
+from spektral.data import Dataset, Loader
+from spektral.data import BatchLoader, DisjointLoader
 
 from typing import Literal
 
@@ -32,8 +32,8 @@ def load_data(
     idxs = np.random.permutation(len(dataset))
 
     # Split indices.
-    split_va = int(len(dataset) * val_split)
     split_te = int(len(dataset) * test_split)
+    split_va = int(len(dataset) * val_split)
 
     idx_tr, idx_va, idx_te = np.split(idxs, [split_va, split_te])
 
@@ -49,7 +49,7 @@ def data_loader(
     loader: Literal['batch', 'disjoint'] = 'disjoint',
     epochs: int | None = None,
     shuffle: bool = True,
-) -> tuple[Loader, ...]:
+) -> Loader:
     """Load the dataset and create the data loaders.
 
     Args:

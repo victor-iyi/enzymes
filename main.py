@@ -4,7 +4,7 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.losses import CategoricalCrossentropy
 from tensorflow.keras.metrics import CategoricalAccuracy
 
-from spektra.models import GeneralGNN
+from spektral.models import GeneralGNN
 
 from enzymes.data import load_data
 from enzymes.data import data_loader
@@ -18,8 +18,8 @@ def main(
     lr: float = 0.001,
     dropout: float = 0.5,
     loader: str = 'disjoint',
-    test_split: float = 0.8,
-    val_split: float = 0.9,
+    test_split: float = 0.9,
+    val_split: float = 0.8,
 ) -> None:
     """Graph Neural  Network.
 
@@ -57,14 +57,14 @@ def main(
         dataset=val_ds,
         batch_size=batch_size,
         loader=loader,
-        epochs=None,
+        epochs=epochs,
         shuffle=False,
     )
     test_loader = data_loader(
         dataset=test_ds,
         batch_size=batch_size,
         loader=loader,
-        epochs=None,
+        epochs=epochs,
         shuffle=False,
     )
 
